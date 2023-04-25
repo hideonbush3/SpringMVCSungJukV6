@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 스프링이 hideonbush3.spring4.sungjuk 패키지의 컴포넌트를 훑어서 객체를 미리 만들어
+    두고 필요할때마다 주입시켜준다 -->
+    <context:component-scan base-package="hideonbush3.spring4.sungjukv6" />
+</beans>
