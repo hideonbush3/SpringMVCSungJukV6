@@ -1,7 +1,10 @@
 package hideonbush3.spring4.sungjukv6.service;
 
 import hideonbush3.spring4.sungjukv6.dao.SungJukV4DAO;
+import hideonbush3.spring4.sungjukv6.dao.SungJukV6DAOImpl;
 import hideonbush3.spring4.sungjukv6.model.SungJukVO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +13,9 @@ import java.util.Scanner;
 
 @Service("sjsrv")
 public class SungJukV6ServiceImpl implements SungJukV6Service {
-    private Scanner sc = null;
-    private List<SungJukVO> sjs = null;
     private SungJukV4DAO sjdao = null;
+    private static final Logger logger = LogManager.getLogger(SungJukV6ServiceImpl.class);
+
 
 
     @Autowired
@@ -23,6 +26,8 @@ public class SungJukV6ServiceImpl implements SungJukV6Service {
     public boolean newSungJuk(SungJukVO sj) {
         boolean result = false;
         this.computeSungJuk(sj);
+        logger.info(sj);
+
         if(sjdao.insertSungJuk(sj) > 0) result = true;
 
         return result;
@@ -39,8 +44,7 @@ public class SungJukV6ServiceImpl implements SungJukV6Service {
     }
 
     public SungJukVO readOneSungJuk(int sjno) {
-
-        return null;
+        return sjdao.selectOneSungJuk(sjno);
     }
 
     // 성적 리스트 받아옴
