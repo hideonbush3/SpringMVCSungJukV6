@@ -71,5 +71,16 @@ public class SungJukController {
         return mv;
     }
 
+    // 성적 삭제
+    @GetMapping("/remove")
+    public String remove(int sjno){
+
+        sjsrv.removeSungJuk(sjno);
+
+        // 클라이언트에게 /list를 서버에 재요청하도록 지시
+        // 그럼 /list 를 value 로 갖고있는 GetMapping 을 찾게됨
+        return "redirect:/list";
+    }
+
 
 }

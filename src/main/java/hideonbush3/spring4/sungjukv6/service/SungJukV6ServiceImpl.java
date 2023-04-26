@@ -34,8 +34,8 @@ public class SungJukV6ServiceImpl implements SungJukV6Service {
     }
 
     public boolean removeSungJuk(int sjno) {
-
-        return false;
+        sjdao.deleteSungJuk(sjno);
+        return true;
     }
 
     public boolean modifySungJuk(SungJukVO sj) {

@@ -105,10 +105,7 @@ public class SungJukV6DAOImpl implements SungJukV4DAO{
 
     @Override
     public int deleteSungJuk(int sjno) {
-        int cnt = -1;
-
-        return cnt;
+        Object[] param = new Object[]{sjno};
+        return jdbcTemplate.update(deleteSQL, param);
     }
-
-
 }
