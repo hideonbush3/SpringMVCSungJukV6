@@ -18,14 +18,29 @@ public class SungJukV6ServiceImpl implements SungJukV6Service {
     @Autowired
     public SungJukV6ServiceImpl(SungJukV4DAO sjdao) {this.sjdao = sjdao;}
 
-    public void removeSungJuk() {
+    @Override
+    // 성적 데이터 저장
+    public boolean newSungJuk(SungJukVO sj) {
+        boolean result = false;
+        this.computeSungJuk(sj);
+        if(sjdao.insertSungJuk(sj) > 0) result = true;
 
+        return result;
     }
 
-    public void modifySungJuk() {
+    public boolean removeSungJuk(int sjno) {
+
+        return false;
     }
 
-    public void readOneSungJuk() {
+    public boolean modifySungJuk(SungJukVO sj) {
+
+        return false;
+    }
+
+    public SungJukVO readOneSungJuk(int sjno) {
+
+        return null;
     }
 
     // 성적 리스트 받아옴
@@ -34,11 +49,8 @@ public class SungJukV6ServiceImpl implements SungJukV6Service {
         return sjdao.selectSungJuk();
     }
 
-    // 성적 데이터 추가
-    public void newSungJuk() {
-
-    }
-
+    @Override
+    // 성적 데이터 처리
     public void computeSungJuk(SungJukVO sj) {
 
         sj.setTot( sj.getKor() + sj.getEng() + sj.getMat() );

@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface SungJukV6Service {
 
-    void newSungJuk();
+    boolean newSungJuk(SungJukVO sj);
 
     List<SungJukVO> readSungJuk();
 
-    void readOneSungJuk();
+    SungJukVO readOneSungJuk(int sjno);
 
-    void modifySungJuk();
+    boolean modifySungJuk(SungJukVO sj);
 
-    void removeSungJuk();
+    boolean removeSungJuk(int sjno);
 
     void computeSungJuk(SungJukVO sj);
 }
