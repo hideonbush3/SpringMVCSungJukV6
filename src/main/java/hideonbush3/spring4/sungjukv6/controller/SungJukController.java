@@ -53,4 +53,23 @@ public class SungJukController {
 
         return mv;
     }
+
+    // 성적 본문조회 처리
+    @GetMapping(value = "/view")
+    public ModelAndView view(@RequestParam int sjno){
+        ModelAndView mv = new ModelAndView();
+        String view = "sungjukfail";
+        SungJukVO sj = sjsrv.readOneSungJuk(sjno);
+
+        if(sj != null){
+            mv.addObject("sj", sj);
+            view = "sungjukview";
+        }
+
+        mv.setViewName(view);
+
+        return mv;
+    }
+
+
 }

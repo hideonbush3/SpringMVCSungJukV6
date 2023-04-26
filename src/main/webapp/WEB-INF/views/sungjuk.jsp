@@ -8,7 +8,7 @@
 <body>
 <h1>성적처리 프로그램 v6</h1>
 
-<!-- action 속성을 포함하지 않으면 submit 했을때 자기 자신을 다시 부름 -->
+<!-- form 에 action 속성을 포함하지 않으면 submit 했을때 자기 자신을 다시 부름 -->
 <form name="sj" method="post">
     <div>이름 : <input type = "text" name = "name"></div>
     <div>국어 : <input type = "text" name = "kor"></div>

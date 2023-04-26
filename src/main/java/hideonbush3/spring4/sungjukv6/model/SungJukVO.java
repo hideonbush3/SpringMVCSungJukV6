@@ -39,6 +39,7 @@ public class SungJukVO {
         this.mat = mat;
     }
 
+
     public int getSjno() {
         return sjno;
     }
