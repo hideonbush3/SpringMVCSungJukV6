@@ -1,7 +1,6 @@
 package hideonbush3.spring4.sungjukv6.service;
 
 import hideonbush3.spring4.sungjukv6.dao.SungJukV4DAO;
-import hideonbush3.spring4.sungjukv6.dao.SungJukV6DAOImpl;
 import hideonbush3.spring4.sungjukv6.model.SungJukVO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -39,8 +38,10 @@ public class SungJukV6ServiceImpl implements SungJukV6Service {
     }
 
     public boolean modifySungJuk(SungJukVO sj) {
+        boolean result = false;
+        if (sjdao.updateSungJuk(sj) > 0) result = true;
 
-        return false;
+        return result;
     }
 
     public SungJukVO readOneSungJuk(int sjno) {
