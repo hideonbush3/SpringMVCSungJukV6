@@ -24,6 +24,7 @@ public class SungJukV6ServiceImpl implements SungJukV6Service {
     // 성적 데이터 저장
     public boolean newSungJuk(SungJukVO sj) {
         boolean result = false;
+
         this.computeSungJuk(sj);
         logger.info(sj);
 
@@ -39,6 +40,8 @@ public class SungJukV6ServiceImpl implements SungJukV6Service {
 
     public boolean modifySungJuk(SungJukVO sj) {
         boolean result = false;
+        computeSungJuk(sj);
+
         if (sjdao.updateSungJuk(sj) > 0) result = true;
 
         return result;
