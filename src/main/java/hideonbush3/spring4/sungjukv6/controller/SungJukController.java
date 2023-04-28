@@ -71,6 +71,16 @@ public class SungJukController {
 
     // 성적 수정
     @GetMapping("/modify")
+    public ModelAndView modify(@RequestParam int sjno) {
+        ModelAndView mv = new ModelAndView();
+
+        mv.addObject("sj", sjsrv.readOneSungJuk(sjno));
+        mv.setViewName("sjmodify");
+
+        return mv;
+    }
+
+    @PostMapping("/modify")
     public ModelAndView modifyok(SungJukVO sj) {
         String view = "sungjukfail";
         ModelAndView mv = new ModelAndView();
@@ -81,12 +91,6 @@ public class SungJukController {
         mv.setViewName(view);
 
         return mv;
-    }
-
-    @PostMapping("/modify")
-    public ModelAndView modifyok() {
-
-        return null;
     }
 
 

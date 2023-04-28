@@ -8,11 +8,11 @@
 
     <!-- jdbc property : 현재 파일에만 속성값 적용 -->
     <context:property-placeholder
-            location="/WEB-INF/jdbc.properties" />
+            location="classpath:jdbc.properties" />
 
-    <!-- jdbc properties : 모든 파일에 속성값 적용 -->
-    <util:properties id="jdbc"
-                     location="/WEB-INF/jdbc.properties" />
+    <!-- sql properties : 모든 파일에 속성값 적용 -->
+    <util:properties id="sql"
+                     location="classpath:sql.properties" />
 
     <!-- 외부 클래스는 bean태그를 사용해야 쓸 수 있다. 내가만든건 어노테이션으로도 가능 -->
     <!-- dbcp datasource -->
